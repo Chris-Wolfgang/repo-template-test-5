@@ -1,0 +1,57 @@
+name: Deploy DocFX Pages
+
+on:
+  push:
+    branches:
+      - main # Your primary branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Allow write access for gh-pages branch
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Build solution
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Install DocFX
+        run: dotnet tool update docfx --global
+
+      - name: Build DocFx Metadata
+        run: docfx metadata 
+        working-directory: docfx_project
+
+      - name: Build Docs
+        run: docfx build 
+        working-directory: docfx_project
+
+      - name: Verify build output
+        run: |
+          if [ ! -d "docs" ]; then
+            echo "Error: docs directory not found!"
+            exit 1
+          fi
+          echo "Build successful. Contents of docs:"
+          ls -la docs
+          echo "API documentation:"
+          ls -la docs/api
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
+          force_orphan: true
