@@ -24,8 +24,18 @@
     <File Path=".github/workflows/pr.yaml" />
     <File Path=".github/workflows/release.yaml" />
   </Folder>
-  <Folder Name="/benchmarks/" />
-  <Folder Name="/examples/" />
-  <Folder Name="/src/" />
-  <Folder Name="/tests/" />
+  <Folder Name="/benchmarks/">
+    <Project Path="benchmarks/HelloWorld.Benchmarks/HelloWorld.Benchmarks.csproj" />
+  </Folder>
+  <Folder Name="/examples/">
+    <Project Path="examples/HelloWorld.ConsoleAppDotNet10/HelloWorld.ConsoleApp.DotNet10.csproj" Id="5e1f2dab-356b-428e-aa0b-4dfe7958df57" />
+    <Project Path="examples/HelloWorld.ConsoleAppDotNet4/HelloWorld.ConsoleApp.DotNet4.csproj" Id="91ad3a62-e229-4de3-9811-a5d9014560c5" />
+    <Project Path="examples/HelloWorld.ConsoleAppDotNet5/HelloWorld.ConsoleApp.DotNet5.csproj" Id="452f2d3d-7278-4e99-b327-a383399c418e" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/HelloWorld/HelloWorld.csproj" Id="0d9455ad-4092-4066-a608-7602b6e8f34b" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/HelloWorld.Tests.Unit/HelloWorld.Tests.Unit.csproj" />
+  </Folder>
 </Solution>
