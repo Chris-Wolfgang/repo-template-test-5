@@ -28,7 +28,6 @@ public sealed class HelloWorldBenchmarks
     [GlobalCleanup]
     public void GlobalCleanup()
     {
-        _stringWriter?.Dispose();
         _nullStreamWriter?.Dispose();
     }
 
