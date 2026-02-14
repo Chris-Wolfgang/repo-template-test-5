@@ -12,7 +12,7 @@ public class HelloWorld
     /// Prints "Hello World" to the provided text writer.
     /// </summary>
     /// <param name="tw">The text writer to write the output to.</param>
-    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="tw"/> is null.</exception>
     public void Print(TextWriter tw)
     {
         if (tw == null)
