@@ -27,7 +27,7 @@ public class HelloWorldBenchmarks
     [Benchmark]
     public void Print_StreamWriter()
     {
-        using var ms = Stream.Null;
+        var ms = Stream.Null;
         using var sw = new StreamWriter(ms);
         _helloWorld.Print(sw);
     }
