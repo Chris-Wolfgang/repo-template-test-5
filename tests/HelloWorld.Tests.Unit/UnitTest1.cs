@@ -2,7 +2,7 @@ using System.Text;
 
 namespace HelloWorld.Tests.Unit;
 
-public class UnitTest1
+public class HelloWorldPrintTests
 {
     [Fact]
     public void Test1()
