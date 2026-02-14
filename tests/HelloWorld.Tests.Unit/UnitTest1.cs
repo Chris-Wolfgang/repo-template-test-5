@@ -5,7 +5,7 @@ namespace HelloWorld.Tests.Unit;
 public class HelloWorldPrintTests
 {
     [Fact]
-    public void Test1()
+    public void Print_ThrowsArgumentNullException_WhenTextWriterIsNull()
     {
         Assert.Throws<ArgumentNullException>(() => new HelloWorld().Print(null!));
     }
@@ -13,7 +13,7 @@ public class HelloWorldPrintTests
 
 
     [Fact]
-    public void Test2()
+    public void Print_WritesHelloWorld_ToTextWriter()
     {
         var sb = new StringBuilder();
         var tw = new StringWriter(sb);
