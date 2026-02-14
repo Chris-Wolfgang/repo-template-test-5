@@ -16,7 +16,7 @@ public class HelloWorldPrintTests
     public void Test2()
     {
         var sb = new StringBuilder();
-        var tw = new StringWriter(sb);
+        using var tw = new StringWriter(sb);
         new HelloWorld().Print(tw);
         Assert.Equal("Hello World", sb.ToString().Trim());
     }
