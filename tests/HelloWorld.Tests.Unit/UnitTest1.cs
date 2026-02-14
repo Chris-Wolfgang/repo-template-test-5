@@ -7,8 +7,6 @@ public class UnitTest1
     [Fact]
     public void Test1()
     {
-        var sb = new StringBuilder();
-        var tw = new StringWriter(sb);
         Assert.Throws<ArgumentNullException>(() => new HelloWorld().Print(null!));
     }
 
