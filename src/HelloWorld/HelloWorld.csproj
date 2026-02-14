@@ -12,9 +12,9 @@
 		<Version>0.1.0</Version>
 		<Title>$(AssemblyName)</Title>
 		<Authors>Chris Wolfgang</Authors>
-		<Description>A collection of extension methods for IAsyncEnumerable</Description>
+		<Description>A simple Hello World library</Description>
 		<Copyright>Copyright 2026 Chris Wolfgang </Copyright>
-		<PackageProjectUrl>https://github.com/Chris-Wolfgang/IAsyncEnumerable-Extensions</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/Chris-Wolfgang/repo-template-test-5</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<AssemblyVersion>1.0.0</AssemblyVersion>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
