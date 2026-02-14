@@ -9,7 +9,9 @@ namespace HelloWorld.Benchmarks;
 /// </summary>
 [MemoryDiagnoser]
 #pragma warning disable MA0048 // File name must match type name - benchmark class in Program.cs is acceptable
-public sealed class HelloWorldBenchmarks : IDisposable
+#pragma warning disable CA1001 // Types that own disposable fields should be disposable - BenchmarkDotNet uses GlobalCleanup
+public sealed class HelloWorldBenchmarks
+#pragma warning restore CA1001
 #pragma warning restore MA0048
 {
     private HelloWorld _helloWorld = null!;
@@ -17,29 +19,34 @@ public sealed class HelloWorldBenchmarks : IDisposable
     private StreamWriter _nullStreamWriter = null!;
 
     [GlobalSetup]
-    public void Setup()
+    public void GlobalSetup()
     {
         _helloWorld = new HelloWorld();
-        _stringWriter = new StringWriter();
         _nullStreamWriter = new StreamWriter(Stream.Null);
     }
 
     [GlobalCleanup]
-    public void Cleanup()
-    {
-        Dispose();
-    }
-
-    public void Dispose()
+    public void GlobalCleanup()
     {
         _stringWriter?.Dispose();
         _nullStreamWriter?.Dispose();
     }
 
+    [IterationSetup(Target = nameof(PrintToStringWriter))]
+    public void SetupStringWriter()
+    {
+        _stringWriter = new StringWriter();
+    }
+
+    [IterationCleanup(Target = nameof(PrintToStringWriter))]
+    public void CleanupStringWriter()
+    {
+        _stringWriter?.Dispose();
+    }
+
     [Benchmark]
     public void PrintToStringWriter()
     {
-        _stringWriter.GetStringBuilder().Clear();
         _helloWorld.Print(_stringWriter);
     }
 
