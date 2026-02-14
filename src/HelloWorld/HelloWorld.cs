@@ -9,7 +9,7 @@ namespace HelloWorld;
 public class HelloWorld
 {
     /// <summary>
-    /// Prints "Hello World" to the console.
+    /// Prints "Hello World" to the provided text writer.
     /// </summary>
     /// <param name="tw">The text writer to write the output to.</param>
     /// <exception cref="ArgumentNullException"></exception>
