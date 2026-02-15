@@ -1,8 +1,6 @@
 using BenchmarkDotNet.Attributes;
-using System.IO;
 
 namespace HelloWorld.Benchmarks;
-
 /// <summary>
 /// Benchmarks for the HelloWorld library.
 /// </summary>
